@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+  <meta t="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="css/main.css">  
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>var rootApp = angular.module('rootApp', ['GoogleDirection','MyApp','MyApp1' ])</script>
+  <body ng-app="rootApp">
+    
+    <style>
+     #map-canvas {
+    width: 650px;
+    height: 600px;
+	position:relative;
+	left:20px;
+}
+.myBtn{
+			  position:relative;
+				   left:500px;	
+                   background: white;
+                   border: 1px solid silver;
+               }
+               #whtrContent{
+				   position:relative;
+				   bottom:850px;
+				   left:500px;
+                   border: 1px solid silver;
+                   background-color: #EDF0F5;
+               }
+               #whtrImg{
+                   width: 30px;height: 30px;
+                   border: 1px solid burlywood
+               }
+               .cityName{
+                   font-size: 30px;
+               }
+               .temp{
+                   padding: 15px;
+                   background: blue;
+                   color: white;
+               }
+			   #textData{
+				position:relative;
+				   left:500px;		
+			   }
+			   #startlocation{
+			    margin:10px;
+				padding-left:10px;
+			   }
+			   .cityName{
+			   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+			   }
+			   
+    </style>
+</head>
+
+<body>
+
+<div class="wrapp" ng-controller="googlemapoutput">
+         <div class="row">
+                <input type="text"  ng-model="startlocation" id="startlocation"/>
+                <input type="text"  ng-model="endlocation" id="endlocation" /> 
+                <button id="btn" ng-click="calcRoute()">
+                    Get Direction
+                </button>
+                 <br/></br>
+            </div>
+            <div id="map-canvas" style="height: 400px;"></div>
+        </div>
+		<div ng-app = "GoogleDirection">
+		</div>
+            <div id="map-canvas" style="height: 400px;"></div>
+        </div>
+		</div>
+         <div ng-app = "MyApp" ng-controller = "MyCont">
+             <div class="row">
+                 <div class="col-md-2"></div>
+                 <div class="col-md-4">
+                     <p align = "center">
+                         <input type = "text" ng-model = "cityName" id = "textData" placeholder = "Enter Your City Name">
+                         <input class = "myBtn" type = "button" value = "GetDetails" ng-click = "funGet()">
+                      </p>
+                 </div>
+                 <div class="col-md-2"></div>
+             </div>
+             <div class="row">
+                 <div class="col-md-2"></div>
+                 <div class="col-md-4" id = "whtrContent">
+                    <h1 align="center">{{ cityName }}</h1>
+                    <hr />
+                    <p align = "center"> <img src="http://openweathermap.org/img/w/{{ imgCode }}.png"> </p>
+                    <h1 align = "center" class = "cityName"> {{ tmp | number : 1 }} C </h1>
+                
+                    <br>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+		<div ng-app = "MyApp1" ng-controller = "MyCont1">
+             <div class="row">
+                 <div class="col-md-2"></div>
+                 <div class="col-md-4">
+                     <p align = "center">
+                         <input type = "text" ng-model = "cityName" id = "textData" placeholder = "Enter Your City Name">
+                         <input class = "myBtn" type = "button" value = "GetDetails" ng-click = "funGet()">
+                      </p>
+                 </div>
+                 <div class="col-md-2"></div>
+             </div>
+             <div class="row">
+                 <div class="col-md-2"></div>
+                 <div class="col-md-4" id = "whtrContent">
+                    <h1 align="center">{{ cityName }}</h1>
+                    <hr />
+                    <p align = "center"> <img src="http://openweathermap.org/img/w/{{ imgCode }}.png"> </p>
+                    <h1 align = "center" class = "cityName"> {{ tmp | number : 1 }} C </h1>
+                
+                    <br>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </body>
+</html>

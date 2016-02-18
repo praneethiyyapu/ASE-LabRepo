@@ -1,0 +1,101 @@
+<!doctype html>
+<head>
+</script>
+	<title>
+		Log In
+	</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<style type="text/css">
+#mainDiv{
+		width:600px;
+		#background-color:red;
+		margin:0 auto;
+		font-family:helvetica;
+		font-size:1.2em;
+	}
+	input{
+		width:250px;
+		height:30px;
+		padding:5px;
+		border-radius:5px;
+		font-size:1em;
+		border:1px solid grey;
+		margin-bottom:10px;
+	}
+	label{
+		padding-top:10px;
+		width:200px;
+		float:left;
+		color:#333333;
+		
+	
+	}
+	#SubmitButton{
+		margin-top:10px;
+		margin-left:200px;
+		height:45px;
+		width:265px;	
+		font-size:1em;
+		color:#FFD8CB;
+	    background-color:#5B74A8;
+	}
+    #errorDiv{
+		color:red;
+		font-family:helvetica;
+		font-size:1.2em;
+	}
+	#textDiv{
+		position:relative;
+		left:250px;
+		color:#333333;
+		}
+	#RegisterButton{
+		margin-top:10px;
+		margin-left:200px;
+		height:45px;
+		width:265px;	
+		font-size:1em;
+		color:#FFD8CB;
+	    background-color:#68A253;
+</style>
+</head>
+<body bgcolor="#EDF0F5">
+	<div id="errorDiv"></div>
+	<div id ="mainDiv">
+	<form id="validationForm">
+		<label for ="uname"> Username</label>
+		<input name="uname" id="uname"/>	
+		<label for ="password"> Password</label>
+		<input type="password" name="password" id="password"/>
+		<input id="SubmitButton" type ="submit" value="Log In"/>
+	</form>
+	<div id="textDiv">Don't have an account?</div>
+	<a href="Register.html" style="text-decoration:none"> <input id="RegisterButton" type ="submit" value="Register"/></a>
+	
+	<script>
+		$("#validationForm").submit(function(event){
+			var error="";
+			event.preventDefault();
+			if ($("#uname").val()==""){
+			error=error+"</br>Please enter a username";}
+			if ($("#password").val()==""){
+			error=error+"</br>Please enter a password";}
+			else{
+			if ($("#password").val()!="Wipro@123" ){
+			error=error+"</br>Username and Password do not match";}
+			if ($("#uname").val()!="praneethiyyapu@gmail.com" ){
+			error=error+"</br>Username and Password do not match";}
+			}
+			
+			if (error==""){
+			alert("Login success")
+			window.location.href = "Home.html";
+			}
+			
+			$("#errorDiv").html(error);
+		});
+		
+
+	</script>
+</body>
